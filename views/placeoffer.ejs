@@ -1,25 +1,39 @@
 <% include partials/header.ejs %>
 
-  <form action="/deposer" method="POST" enctype="multipart/form-data">
-    <div class="form">
-        <h1>Déposer votre annonce</h1>
-    <div>
-    <div class="offer" >Votre annonce</div>
-    <div> Titre de l'annonce <input type="text" placeholder="Titre de l'annonce" name="title" /> </div>
-    <div> Texte de l'annonce <input type="text" placeholder="Texte de l'annonce" name="description" /></div>
-    <div>Prix <input type="text" placeholder="Prix" name="price"/> € </div>
-    <div> Photo <input type="file" placehorder= "Photo" name="picture"/></div>
-    <div>
-        <div class="geoloc">Localisation</div>
-        <div>Ville ou Code Postal <input type="text" placeholder="Ville ou Code Postal" name="location"/></div>
-    </div>
-    <div>
-        <div class="clientinfo">Vos informations</div>
-        <div> Pseudo <input type="text" placeholder="Pseudo" name="pseudo"/></div>
-        <div>E-mail <input type="text" placeholder="E-mail" name="email"/></div>
-        <div>Téléphone<input type="text" placeholder="Téléphone" name="phone"/></div>
-    </div>
-    <div><button type="submit">Valider</button></div>
-  </form>
+<div class="container">
+<h4>Déposer votre annonce</h4>
 
+  <form action="/deposer" method="POST" enctype="multipart/form-data">
+    <div class="form-bock">
+
+        <div class="form-group"> Votre annonce </div>
+        <div>
+            <label for="title">Titre de l'annonce</label>
+            <input type="text" class="form-control" name="title" aria-describedby="titleHelp" placeholder="Votre titre">
+            <label for="description">Texte de l'annonce</label>
+            <input type="text" class="form-control" name="description" aria-describedby="descriptionHelp" placeholder="Texte de l'annonce">
+            <label for="price">Prix</label>
+            <input type="text" class="form-control" name="price" aria-describedby="titleHelp" placeholder="Votre prix"> 
+            <label for="picture">Photo</label>
+            <input type="file" name="picture" aria-describedby="titleHelp">
+        </div>
+        <div class="form-group"> Localisation</div>
+            <div>
+            <input type="text" class="form-control" name="location" placeholder="Ville ou Code Postal">
+            </div>
+        
+        <div class="form-group"> Vos informations</div>
+        <div>
+            <input type="text" class="form-control" name="pseudo" aria-describedby="clientHelp" placeholder="Pseudo">
+            <label for="email">E-mail</label>
+            <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Votre e-mail">
+            <label for="phone">Téléphone</label>
+            <input type="text" class="form-control" name="phone" aria-describedby="phoneHelp" placeholder="Votre téléphone">
+        </div>
+    </div>
+  
+    <div><button type="submit">Valider</button></div>
+
+  </form>
+</div>
   <% include partials/footer.ejs %>

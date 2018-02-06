@@ -1,11 +1,19 @@
 <% include partials/header.ejs %>
 
 
-<div class="title">
-    <h1><%= offer.title %></h1>
-</div>
-<img src="uploads/<%= offer.picture %>" alt="<%= offer.title %>" />
+    <div class="title">
+        <h3>
+            <%= offer.title %>
+        </h3>
+    </div>
+    <img src="/uploads/<%= offer.picture %>" alt="<%= offer.title %>"  width="400" />
+    <div class="pseudo" ><%= offer.pseudo %></div>
+    <div class="price">Prix <%= offer.price %> € </Euros></div>
+    <div class="city">Ville <%= offer.location %></div>
+    <div class="description">Description</div>
+        <a><%= offer.description %> </a>
+    
 
 
 
-<% include partials/footer.ejs %>
+    <% include partials/footer.ejs %>
