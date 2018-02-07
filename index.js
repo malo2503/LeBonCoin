@@ -28,14 +28,18 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
+// afficher les offres
+
 app.get("/", function(req, res) {
   ClassifiedAd.find({}, function(err, offers) {
     if (!err) {
       console.log(offers);
     }
   });
-  res.render('home.ejs');
-});
+  
+  res.render('home.ejs', { offers} );
+
+  });
 
 // accéder au formulaire de depot
 
@@ -66,15 +70,15 @@ app.post("/deposer", upload.single("picture"), function(req, res) {
   });
 });
 
-//accéder au rendu d'annonce
+//accéder au detail d'une annonce
 
 app.get("/annonce/:id", function(req, res) {
-  ClassifiedAd.findbyId({"id": "req.body.id"}, function(err, offers) {
+  ClassifiedAd.find({id: req.params.id}, function(err, offer) {
     if (!err) {
-      console.log(offers);
+      console.log(offer);
       }
     });
-  res.render("viewoffer.ejs", { offer});
+  res.render("viewoffer.ejs", {offer});
 });
 
 app.listen(3000, "localhost", function() {
