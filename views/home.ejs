@@ -1,5 +1,20 @@
 <% include partials/header.ejs %>
 
+<div class="offerList d-flex">
+    <% for (var i=0; i<100; i++) {
+        %>
+        <div class="offer">
+                <img src="/uploads/<%= offers[i].picture %>"  width="400" />
+        <div class="title">
+            <a href="./viewoffer"><%= offers[i].title %>></a>
+        
+        </div>
+
+        <div class="city">Ville <%= offers[i].location %></div>
+        <div class="price">Prix <%= offers[i].price %> € </div>
+    <% } %>
+    </div>
+</div>  
 
 
 

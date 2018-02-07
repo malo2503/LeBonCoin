@@ -3,15 +3,17 @@
 
     <div class="title">
         <h3>
-            <%= offer.title %>
+            <%= offers.title %>
         </h3>
     </div>
-    <img src="/uploads/<%= offer.picture %>" alt="<%= offer.title %>"  width="400" />
-    <div class="pseudo" ><%= offer.pseudo %></div>
-    <div class="price">Prix <%= offer.price %> € </Euros></div>
-    <div class="city">Ville <%= offer.location %></div>
+    <img src="/uploads/<%= offers.picture %>"  width="400" />
+    <p><%= offers.title %>"</p>
+    </div>
+    <div class="pseudo" ><%= offers.pseudo %></div>
+    <div class="price">Prix <%= offers.price %> € </Euros></div>
+    <div class="city">Ville <%= offers.location %></div>
     <div class="description">Description</div>
-        <a><%= offer.description %> </a>
+        <a><%= offers.description %> </a>
     
 
 

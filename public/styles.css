@@ -1,8 +1,11 @@
 
 .nav-style {
     background-color: #E4723D;
+   
 }
-
+.navbarNav {
+    color: white;
+}
 .nav-item{
     font: Open Sans Semi;
     font-size: 13px;

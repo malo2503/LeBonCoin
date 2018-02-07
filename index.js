@@ -29,7 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", function(req, res) {
-  res.render("home.ejs");
+  ClassifiedAd.find({}, function(err, offers) {
+    if (!err) {
+      console.log(offers);
+    }
+  });
+  res.render('home.ejs');
 });
 
 // accéder au formulaire de depot
@@ -63,13 +68,14 @@ app.post("/deposer", upload.single("picture"), function(req, res) {
 
 //accéder au rendu d'annonce
 
-/*app.get("/annonce/:id", function(req, res) {
-  var id = parseInt(req.params.id);
-  var offer = _.find(offers, ["id", id]);
-  console.log(offer);
-  res.render("viewoffer.ejs", { offer });
+app.get("/annonce/:id", function(req, res) {
+  ClassifiedAd.findbyId({"id": "req.body.id"}, function(err, offers) {
+    if (!err) {
+      console.log(offers);
+      }
+    });
+  res.render("viewoffer.ejs", { offer});
 });
-*/
 
 app.listen(3000, "localhost", function() {
   console.log("Server is listening...");
