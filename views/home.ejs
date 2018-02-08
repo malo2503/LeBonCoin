@@ -1,21 +1,22 @@
 <% include partials/header.ejs %>
 
 <div class="offerList d-flex">
-    <% for (var i=0; i<100; i++) {
-        %>
-        <div class="offer">
-                <img src="/uploads/<%= offers[i].picture %>"  width="400" />
-        <div class="title">
-            <a href="./viewoffer"><%= offers[i].title %>></a>
-        
-        </div>
+    <% if (!offers.length) { %>
+    <b> Aucune offre !</b>
+    <br><br>
+<% } else { %>
+<table class="offer">
+    <% offers.forEach(function(offer) { %>
+    <tr>
+           <td width=50> <img src="/uploads/<%= offer.picture %>"  width="400"/></td>
+           <td width=300><h3> <p><%= offer.title %></p></h3>
+            <p><%= offer.location %></p>
+            <p><%= offer.price %> € </p>
 
-        <div class="city">Ville <%= offers[i].location %></div>
-        <div class="price">Prix <%= offers[i].price %> € </div>
-    <% } %>
-    </div>
-</div>  
-
+    </tr>
+<% }); %>
+</table>
+<% } %>
 
 
 <% include partials/footer.ejs %>

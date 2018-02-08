@@ -30,14 +30,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // afficher les offres
 
+
 app.get("/", function(req, res) {
   ClassifiedAd.find({}, function(err, offers) {
     if (!err) {
-      console.log(offers);
+      res.render('home.ejs', { offers : offers } );
     }
   });
   
-  res.render('home.ejs', { offers} );
+  
 
   });
 
@@ -73,13 +74,13 @@ app.post("/deposer", upload.single("picture"), function(req, res) {
 //accéder au detail d'une annonce
 
 app.get("/annonce/:id", function(req, res) {
-  ClassifiedAd.find({id: req.params.id}, function(err, offer) {
+  var id = req.params.id;
+  ClassifiedAd.findById(id, function(err, offer) {
     if (!err) {
-      console.log(offer);
+      res.render("viewoffer.ejs", { offer : offer });
       }
-    });
-  res.render("viewoffer.ejs", {offer});
-});
+    }); 
+  });
 
 app.listen(3000, "localhost", function() {
   console.log("Server is listening...");
